@@ -41,12 +41,14 @@ in `fetch_transactions.py`
 3. total_transactions : Fewer transactions may mean more risky
 4. avg_value (Average Transaction value) : Lower the average value , higher the risk
 5. max_value : High value of transactions may imply some risky bet .
-  > I have got these in my `feature_engineering.py` 
+  > I have got these in my `feature_engineering.py`
+
+
 **Scoring Model** :  I have used a weighted formula to get risk score in `scoring_model.py`: `risk = 0.2 * (1 / (1 + features['activity_days'])) + 0.3 * (1 / (1 + features['avg_value'])) +/
            0.3 * (1 / (1 + features['total_tx'])) + /
            0.2 * (1 / (1 + features['gas_spent']))`
 > A weight of 0.2 is given to activity days and gas_spent while we take the features avg_value and total_tx(transactions) as more important features(weights=0.3) .
 > A high value of each of the following features will imply a lower risk and vice-a-versa .
-> we have also trained a Random Forest regressor to get risk_scores from the features engineered . 
+> we have also trained a Random Forest regressor to get risk_scores from the features engineered . But the ML trained model does not give good results . Due to high percentage of high risk wallets most scores are towards 1000 in final_ml_scores.csv. 
 
    
