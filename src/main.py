@@ -24,6 +24,6 @@ for wallet in wallets:
 df_result = pd.DataFrame(results)
 df_result.to_csv("results/features_scores.csv", index=False)
 print("Done! Scores saved to features_scores.csv")
-score_df=pd.DataFrame(df_result['wallet'],df_result['risk_score'])
+score_df=pd.DataFrame(wallets,df_result['risk_score'])
 score_df.to_csv("results/final_scores.csv")
 
